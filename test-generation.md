@@ -1,6 +1,6 @@
 # Evaluation on the Effectiveness of Test Generation tools with BugSwarm
 
-In this section, we evaluate Randoop with BugSwarm to test it test generation capability. We will use ``alibaba-fastjson2-15942144023` artifact to evaluate Randoop.
+In this section, we evaluate Randoop with BugSwarm to test it test generation capability. We will use `alibaba-fastjson2-15942144023` artifact to evaluate Randoop.
 
 ## Step 1: Run artifact's Docker container
 
