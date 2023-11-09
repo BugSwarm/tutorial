@@ -246,7 +246,7 @@ bugswarm show --image-tag AntonLydike-riscemu-13266995693
 }
 ```
 
-</details><br/>
+</details>
 
 You can start a shell in an artifact's Docker container with `bugswarm run`:
 
