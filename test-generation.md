@@ -39,7 +39,7 @@ run_failed.sh
 find . -name "DateUtilsTestFormat.java"
 ```
 
-The file we are looking for is in the build/failed/alibaba/fastjson2/core directory. We can open the test file and go to line 150:
+The file we are looking for is in the build/failed/alibaba/fastjson2/core directory. We can open the test file and go to line 150
 
 ```sh
 vim ./build/failed/alibaba/fastjson2/core/src/test/java/com/alibaba/fastjson2/util/DateUtilsTestFormat.java
@@ -52,7 +52,7 @@ Based on the diff, we can confirm that the developer fixed the bug by changing t
 
 ## Step 5: Setup `Randoop`
 
-Now, let's locate this `DateUtils` file using the find command:
+Now, let's locate this `DateUtils` file using the find command
 ```sh
 find . -name "DateUtils.java"
 vim ./build/failed/alibaba/fastjson2/core/src/main/java/com/alibaba/fastjson2/util/DateUtils.java
