@@ -54,6 +54,7 @@ export PATH="/usr/local/maven/bin:$PATH"
 Change to the failed repo's directory, build it with Maven, and copy the dependencies
 
 ```sh
+cd ~/build/failed/tananaev/traccar
 mvn clean compile test-compile dependency:copy-dependencies
 ```
 
