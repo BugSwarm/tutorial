@@ -14,9 +14,9 @@ wget https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core
 
 Copy files to bugswarm-sandbox directory
 ```sh
-cp randoop-all-4.3.2.jar bugswarm-sandbox
-cp junit-4.13.2.jar bugswarm-sandbox
-cp hamcrest-core-1.3.jar bugswarm-sandbox
+cp randoop-all-4.3.2.jar ~/bugswarm-sandbox
+cp junit-4.13.2.jar ~/bugswarm-sandbox
+cp hamcrest-core-1.3.jar ~/bugswarm-sandbox
 ```
 
 ## Step 1: Run artifact's Docker container
