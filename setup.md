@@ -293,7 +293,7 @@ A full specification of BugSwarm's artifact schema can be found [here](https://g
 ```python
 import json
 from bugswarm.common.rest_api.database_api import DatabaseAPI
-api = DatabaseAPI('BugSwarmTutorialToken')
+api = DatabaseAPI('BugSwarmTutorialToken-1')
 ```
 
 
