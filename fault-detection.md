@@ -19,7 +19,7 @@ bugswarm show --image-tag tananaev-traccar-64783123
 Run the Docker container for the artifact, you might need to type your password
 
 ```sh
-bugswarm run --image-tag tananaev-traccar-64783123 –-use-sandbox
+bugswarm run --image-tag tananaev-traccar-64783123 --use-sandbox
 ```
 
 Change directory to the buggy version of code, and list to see the files we have
