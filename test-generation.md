@@ -2,18 +2,35 @@
 
 In this section, we evaluate Randoop with BugSwarm to test it test generation capability. We will use `alibaba-fastjson2-15942144023` artifact to evaluate Randoop.
 
-## Step 1: Run artifact's Docker container
 
-```sh
-bugswarm run --image-tag alibaba-fastjson2-15942144023
-```
+## Step 0: Download Randoop and JUnit dependencies
 
-## Step 2: Download Randoop
-
-Go to the home directory and download the latest version of Randoop
 ```sh
 cd ~
 wget https://github.com/randoop/randoop/releases/download/v4.3.2/randoop-all-4.3.2.jar
+wget https://repo1.maven.org/maven2/junit/junit/4.13.2/junit-4.13.2.jar
+wget https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+```
+
+Copy files to bugswarm-sandbox directory
+```sh
+cp randoop-all-4.3.2.jar bugswarm-sandbox
+cp junit-4.13.2.jar bugswarm-sandbox
+cp hamcrest-core-1.3.jar bugswarm-sandbox
+```
+
+## Step 1: Run artifact's Docker container
+
+```sh
+bugswarm run --image-tag alibaba-fastjson2-15942144023 --use-sandbox
+```
+
+## Step 2: Copy dependencies and install a text editor
+
+```sh
+cd ~/
+cp /bugswarm-sandbox/* ~/
+
 ```
 
 Setup environment variable
@@ -77,10 +94,10 @@ Unfortunately, none of the tests Randoop generated reveal the bug.
 
 ## Step 7: Run error-revealing tests
 
-First, download JUnit 4
+Copy JUnit to current directory
 ```sh
-wget https://repo1.maven.org/maven2/junit/junit/4.13.2/junit-4.13.2.jar
-wget https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+cp ~/junit-4.13.2.jar .
+cp ~/hamcrest-core-1.3.jar .
 ```
 
 Compile test and code
