@@ -20,7 +20,7 @@ Initialize it like so:
 
 ```python
 from bugswarm.common.rest_api.database_api import DatabaseAPI
-api = DatabaseAPI(token='BugSwarmTutorialToken')
+api = DatabaseAPI(token='BugSwarmTutorialToken-1')
 ```
 
 > [!NOTE]
