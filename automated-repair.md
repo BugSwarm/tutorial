@@ -63,44 +63,125 @@ mvn clean compile test-compile dependency:copy-dependencies
 To run Astor on the artifact, run
 
 ```sh
-java -jar /bugswarm-sandbox/astor.jar -location $(pwd) -dependencies $(pwd)/target/dependency -mode mutrepair
+java -jar /bugswarm-sandbox/astor.jar -location $(pwd) -dependencies $(pwd)/target/dependency -mode jgenprog
 ```
 
-To use a different repair mode, change the argument to the `-mode` parameter. For instance, `-mode jgenprog` or `-mode cardumen`
+To use a different repair mode, change the argument to the `-mode` parameter. For instance, `-mode mutrepair` or `-mode cardumen`.
 
-Astor puts output statistics in the directory `output_astor/AstorMain-<repo_name>/` and its proposed patches in the directory `diffSolutions/`
+Astor puts output statistics in the directory `output_astor/AstorMain-<repo_name>/` and its proposed patches in the directory `diffSolutions/`.
 
 ```console
-$ for path in diffSolutions/*.diff; do basename $path; cat $path; done
+for path in diffSolutions/*.diff; do basename $path; cat $path; done
 ```
+
+<details><summary>View proposed patches</summary>
 
 ```diff
-patch_11886_8.diff
+patch_105925_364.diff
 --- /src/org/traccar/protocol/AquilaProtocolDecoder.java
 +++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
-@@ -127 +127 @@
+@@ -127,3 +127,3 @@
 -               if (course > 0) {
-+               if (course < 0) {
+-                       position.setCourse((course - 1) * 45);
+-               }
++
++
++
 
-patch_14230_9.diff
+patch_18181_56.diff
 --- /src/org/traccar/protocol/AquilaProtocolDecoder.java
 +++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
-@@ -127 +127 @@
--               if (course > 0) {
-+               if (!(course > 0)) {
+@@ -129 +129,2 @@
+-               }
++               }               return id;
++
+@@ -131 +131,0 @@
+-               return position;
 
-patch_5189_4.diff
+patch_23443_72.diff
 --- /src/org/traccar/protocol/AquilaProtocolDecoder.java
 +++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
-@@ -127 +127 @@
+@@ -127,3 +127,3 @@
 -               if (course > 0) {
-+               if (course == 0) {
+-                       position.setCourse((course - 1) * 45);
+-               }
++
++
++
 
-patch_9502_7.diff
+patch_2842_6.diff
 --- /src/org/traccar/protocol/AquilaProtocolDecoder.java
 +++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
-@@ -127 +127 @@
--               if (course > 0) {
-+               if (course <= 0) {
+@@ -128 +128 @@
+-                       position.setCourse((course - 1) * 45);
++
 
+patch_32725_104.diff
+--- /src/org/traccar/model/Position.java
++++ /src/org/traccar/model/Position.java
+@@ -58 +58 @@
+-       public void setCourse(double course) {          this.course = course;}
++       public void setCourse(double course) {}
+
+patch_34779_112.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -128 +128 @@
+-                       position.setCourse((course - 1) * 45);
++
+
+patch_39855_128.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -128 +128 @@
+-                       position.setCourse((course - 1) * 45);
++
+
+patch_50113_164.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -128 +128 @@
+-                       position.setCourse((course - 1) * 45);
++
+
+patch_54656_180.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -127,3 +127,3 @@
+-               if (course > 0) {
+-                       position.setCourse((course - 1) * 45);
+-               }
++
++
++
+
+patch_59640_196.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -127,3 +127,3 @@
+-               if (course > 0) {
+-                       position.setCourse((course - 1) * 45);
+-               }
++
++
++
+
+patch_63778_216.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -128 +128 @@
+-                       position.setCourse((course - 1) * 45);
++
+
+patch_93074_324.diff
+--- /src/org/traccar/protocol/AquilaProtocolDecoder.java
++++ /src/org/traccar/protocol/AquilaProtocolDecoder.java
+@@ -127,3 +127,3 @@
+-               if (course > 0) {
+-                       position.setCourse((course - 1) * 45);
+-               }
++
++
++
 ```
+</details>
