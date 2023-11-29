@@ -265,7 +265,7 @@ bugswarm run --image-tag AntonLydike-riscemu-13266995693 --use-sandbox
  ├─ run_failed.sh            Scripts to run the failed
  └─ run_passed.sh            and passed jobs.
 
-/home/bugswarm/build/
+/home/{travis,github}/build/
  ├─ <FAILED-ID>.log          The original failed and
  ├─ <PASSED-ID>.log          passed logs.
  │
