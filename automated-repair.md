@@ -15,6 +15,9 @@ api.filter_artifacts(json.dumps({
 
 ## Step 1: Download and Build Astor
 
+**You can skip this step if you've SSHed into one of the provided machines.
+This step is only included for completeness.**
+
 Clone the `SpoonLabs/astor` repo and build it with Maven. (Make sure Maven is configured to use Java 8 or later!)
 
 ```sh
@@ -71,11 +74,9 @@ To use a different repair mode, change the argument to the `-mode` parameter. Fo
 
 Astor puts output statistics in the directory `output_astor/AstorMain-<repo_name>/` and its proposed patches in the directory `diffSolutions/`.
 
-```console
+```sh
 for path in diffSolutions/*.diff; do basename $path; cat $path; done
 ```
-
-<details><summary>View proposed patches</summary>
 
 ```diff
 patch_105925_364.diff
@@ -185,4 +186,3 @@ patch_93074_324.diff
 +
 +
 ```
-</details>
