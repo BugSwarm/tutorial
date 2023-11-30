@@ -31,13 +31,7 @@ ls -l
 
 ## Step 2: Add SpotBugs in the Project
 
-Use VIM to edit `pom.xml` file
-
-```sh
-vim pom.xml
-```
-
-Jump to the end of the build section by typing `?/build` and then **Enter**. Insert the following snippet right before the nearest closing `</plugins>` tag
+Edit `pom.xml` file to add SpotBugs in the project. We need to add the following plugin in the build section, so that SpotBugs can be run during the build process.
 
 ```sh
 <plugin>
@@ -52,8 +46,7 @@ Jump to the end of the build section by typing `?/build` and then **Enter**. Ins
 
 ```
 
-
-Hit **Esc**. Then jump to the end of the build section by typing `?/build` and then **Enter**. Insert the following snippet right after the closing `</build>` tag 
+Also, we need to add the following plugin in the reporting section, so that SpotBugs can generate a report after the build process.
 
 ```sh
 <reporting>
@@ -71,7 +64,12 @@ Hit **Esc**. Then jump to the end of the build section by typing `?/build` and t
 </reporting>
 ```
 
-Hit **Esc**. Then save and close the file by typing `:wq` and then **Enter**.
+
+To simplify, we can just replace the whole `pom.xml` file with the `/bugswarm-sandbox/pom-with-spotbugs.xml` file in the sandbox, in which we have already added the SpotBugs plugin.
+
+```sh
+cp /bugswarm-sandbox/pom-with-spotbugs.xml pom.xml
+```
 
 ## Step 3: Run Fault Detection with SpotBugs
 
