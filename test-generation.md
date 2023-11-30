@@ -39,11 +39,6 @@ ls
 export RANDOOP_JAR="$(pwd)/randoop-all-4.3.2.jar"
 ```
 
-Download text editor
-```sh
-sudo apt-get update && sudo apt-get install vim
-```
-
 ## Step 3: Reproduce failed job
 
 ```sh
@@ -59,7 +54,7 @@ find . -name "DateUtilsTestFormat.java"
 The file we are looking for is in the build/failed/alibaba/fastjson2/core directory. We can open the test file and go to line 150
 
 ```sh
-vim ./build/failed/alibaba/fastjson2/core/src/test/java/com/alibaba/fastjson2/util/DateUtilsTestFormat.java
+sed -n 150p ./build/failed/alibaba/fastjson2/core/src/test/java/com/alibaba/fastjson2/util/DateUtilsTestFormat.java
 ```
 From here, we know that there is a fault in the `DateUtils.formatYMDHMS19` method. To verify this, we can use the BugSwarm dataset website.
 
@@ -72,7 +67,7 @@ Based on the diff, we can confirm that the developer fixed the bug by changing t
 Now, let's locate this `DateUtils` file using the find command
 ```sh
 find . -name "DateUtils.java"
-vim ./build/failed/alibaba/fastjson2/core/src/main/java/com/alibaba/fastjson2/util/DateUtils.java
+less ./build/failed/alibaba/fastjson2/core/src/main/java/com/alibaba/fastjson2/util/DateUtils.java
 ```
 
 We can see the package is `com.alibaba.fastjson2.util`, we will need this when we run Randoop.
@@ -87,7 +82,7 @@ mvn dependency:copy-dependencies
 
 ```sh
 java -Xmx3000m -classpath $RANDOOP_JAR:target/classes:target/dependency/* randoop.main.Main gentests --testclass=com.alibaba.fastjson2.util.DateUtils
-vim ErrorTest0.java
+less ErrorTest0.java
 ```
 
 Unfortunately, none of the tests Randoop generated reveal the bug.
