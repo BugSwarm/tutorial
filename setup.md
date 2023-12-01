@@ -280,6 +280,57 @@ bugswarm run --image-tag AntonLydike-riscemu-13266995693 --use-sandbox
 For instance, you can make changes to the failed version of a given repo in `~/build/failed/<repo-name>`, and then test whether those changes fix the problem by running `run_failed.sh`.
 
 
+### Reproducing a Job
+
+To reproduce the failed job, just run `run_failed.sh`.
+
+```sh
+run_failed.sh
+```
+
+Note the last section of the reproduced job log: 4 specific tests failed, all with a `NameError`.
+
+```log
+<...truncated for brevity...>
+
+============================================== short test summary info ===============================================
+ERROR test/test_helpers.py - NameError: name 'Optional' is not defined
+ERROR test/test_integers.py - NameError: name 'Optional' is not defined
+ERROR test/test_isa.py - NameError: name 'Optional' is not defined
+ERROR test/test_tokenizer.py - NameError: name 'Optional' is not defined
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+================================================= 4 errors in 0.40s ==================================================
+
+##[error]Process completed with exit code 2.
+A job completed hook has been configured by the self-hosted runner administrator
+##[group]Run '/usr/local/bin/remove_wrapper_scripts.sh'
+##[endgroup]
+```
+
+Now check the original log with `less`. Press Shift-G to skip to the end of the log.
+
+```sh
+less ~/build/13266995693-orig.log
+```
+
+The same 4 tests failed in the original log, with the same errors.
+If you edit the repo in `~/build/failed/AntonLydike/riscemu` to fix the error, then `run_failed.sh` will succeed instead.
+
+```log
+<...truncated for brevity...>
+
+2023-05-05T15:32:12.5629398Z =========================== short test summary info ============================
+2023-05-05T15:32:12.5629795Z ERROR test/test_helpers.py - NameError: name 'Optional' is not defined
+2023-05-05T15:32:12.5630224Z ERROR test/test_integers.py - NameError: name 'Optional' is not defined
+2023-05-05T15:32:12.5630646Z ERROR test/test_isa.py - NameError: name 'Optional' is not defined
+2023-05-05T15:32:12.5631052Z ERROR test/test_tokenizer.py - NameError: name 'Optional' is not defined
+2023-05-05T15:32:12.5631396Z !!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!
+2023-05-05T15:32:12.5631705Z ============================== 4 errors in 0.26s ===============================
+```
+
+Press Q to exit `less`, and type `exit` to exit the artifact container.
+
+
 ## Selecting Artifacts (Advanced API Usage)
 
 Using `DatabaseAPI.filter_artifacts()`, you can query artifacts based on many different criteria.
