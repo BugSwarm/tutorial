@@ -72,13 +72,15 @@ less ./build/failed/alibaba/fastjson2/core/src/main/java/com/alibaba/fastjson2/u
 
 We can see the package is `com.alibaba.fastjson2.util`, we will need this when we run Randoop.
 
+## Step 6: Prepare to run `Randoop`
+
 Save dependencies to the target directory
 ```sh
 cd ./build/failed/alibaba/fastjson2/core/
 mvn dependency:copy-dependencies
 ```
 
-## Step 6: Run `Randoop` and see it generated tests
+## Step 7: Run `Randoop` and see it generated tests
 
 ```sh
 java -Xmx3000m -classpath $RANDOOP_JAR:target/classes:target/dependency/* randoop.main.Main gentests --testclass=com.alibaba.fastjson2.util.DateUtils
@@ -87,7 +89,7 @@ less ErrorTest0.java
 
 Unfortunately, none of the tests Randoop generated reveal the bug.
 
-## Step 7: Run error-revealing tests
+## Step 8: Run error-revealing tests
 
 Copy JUnit to current directory
 ```sh
