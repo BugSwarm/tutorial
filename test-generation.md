@@ -62,7 +62,7 @@ Open [https://www.bugswarm.org/dataset](https://www.bugswarm.org/dataset), under
 
 Based on the diff, we can confirm that the developer fixed the bug by changing the `formatYMDHMS19` method.
 
-## Step 5: Setup `Randoop`
+## Step 5: Prepare to run `Randoop`
 
 Now, let's locate this `DateUtils` file using the find command
 ```sh
@@ -72,7 +72,7 @@ less ./build/failed/alibaba/fastjson2/core/src/main/java/com/alibaba/fastjson2/u
 
 We can see the package is `com.alibaba.fastjson2.util`, we will need this when we run Randoop.
 
-## Step 6: Prepare to run `Randoop`
+## Step 6: Setup `Randoop`
 
 Save dependencies to the target directory
 ```sh
