@@ -8,3 +8,4 @@ This repository contains instructions and scripts for the tutorial on evaluating
 | [Fault Detection](fault-detection.md) | Evaluation of SpotBugs with BugSwarm artifact|
 | [Test Generation](test-generation.md) | Evaluation of Randoop with BugSwarm artifact |
 | [Automated Program Repair](automated-repair.md) | Evaluation of Astor with BugSwarm artifact|
+| [Program Repair using LM Agents](simple-agent.md) | Evaluation of Agents with BugSwarm artifact|
