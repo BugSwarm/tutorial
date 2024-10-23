@@ -9,13 +9,18 @@ We will test the efficacy of CIFailureFix-Agent using `tananaev-traccar-64783123
 git clone -b debug https://github.com/BugSwarm/CIFailureFix-Agent.git
 ```
 
-2. Run
+2. Go inside `CIFailureFix-Agent/swe-agent`
+```bash
+cd CIFailureFix-Agent/swe-agent
+```
+
+3. Run
 ```bash
 python -m pip install --upgrade pip && pip install --editable .
 ```
 at the repository root (as with any python setup, it's recommended to use conda or virtual environments to manage dependencies).
 
-3. Create a `keys.cfg` file in `swe-agent`. Contents will be like
+3. Create a `keys.cfg` file. Contents will be like
 ```bash
 GITHUB_TOKEN=""
 OPENAI_API_KEY=""
