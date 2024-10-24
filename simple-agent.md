@@ -37,9 +37,24 @@ For generating patch
 ```bash
 python3 run.py --model_name <llm_model_name> --data_path <bugswarm_image_name> --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
 ```
-For llm_model_name we will use `gpt4`
 For bugswarm image we are using `tananaev-traccar-64783123`
 
+<llm_model_name> refers the mapped name of the llms. Here is the list of Open-ai models which we can use
+
+| Short Name | Model |
+| --- | --- |
+| gpt3 | gpt-3.5-turbo-1106 |
+| gpt3-legacy | gpt-3.5-turbo-16k-0613|
+| gpt4 | gpt-4-1106-preview |
+| gpt4-legacy | gpt-4-0613|
+| gpt4-0125 | gpt-4-0125-preview|
+| gpt4-turbo | gpt-4-turbo-2024-04-09 |
+| gpt4o | gpt-4o-2024-05-13|
+| gpt-4o-mini | gpt-4o-mini-2024-07-18 |
+| gpt4-legacy | gpt-4-0613|
+| gpt4-0125 | gpt-4-0125-preview|
+
+if we want to use `gpt-4-1106-preview` we will replace `<llm_model_name>` with `gpt4`
 command will be
 ```bash
 python3 run.py --model_name gpt4 --data_path tananaev-traccar-64783123 --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
