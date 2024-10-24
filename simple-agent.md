@@ -52,32 +52,39 @@ docker ps -a
 
 After executing this, we will get a list of the containers running. We have to find the id using bugswarm image name
 
-2. After getting the container id, we will enter into the container
+2. Copy the `repo_reset.sh` file into that container
+
+```bash
+docker cp repo_reset.sh <container_id>:~/
+```
+
+3. After getting the container id, we will enter into the container
 
 ```bash
 docker exec -it <container_id> /bin/bash
 ```
 
-3. Enter into the path `/failed-new/travis/tananaev/traccar`
-
+4. Change mode for the script `repo_reset.sh` and execute it.
 ```bash
-cd /failed-new/travis/tananaev/traccar
+chmod +x repo_reset.sh
+./repo_reset.sh
 ```
 
-4. Get the patch from the failed folder
+5. Enter into the path `/home/travis/build/failed/tananaev/traccar`
 
 ```bash
-cp /failed/travis/tananaev/traccar/model.patch .
+cd /home/travis/build/failed/tananaev/traccar
 ```
 
-5. Apply the patch on the folder
+6. Apply the patch on the folder
 
 ```bash
 git apply model.patch
 ```
 
-6. Run the script to build the repo
+7. Run the script to build the repo to see if the build process is successful 
 
 ```bash
-./usr/local/run_failed.sh
+cd /usr/local/bin
+./run_failed.sh
 ```
