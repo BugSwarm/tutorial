@@ -67,7 +67,7 @@ docker exec -it <container_id> /bin/bash
 4. Change mode for the script `repo_reset.sh` and execute it.
 ```bash
 chmod +x repo_reset.sh
-./repo_reset.sh
+./repo_reset.sh <build_system> <folder1> <folder2>
 ```
 
 5. Enter into the path `/home/travis/build/failed/tananaev/traccar`
@@ -79,6 +79,7 @@ cd /home/travis/build/failed/tananaev/traccar
 6. Apply the patch on the folder
 
 ```bash
+cp ~/model.patch /home/travis/build/failed/tananaev/traccar/
 git apply model.patch
 ```
 
