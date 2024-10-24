@@ -69,6 +69,7 @@ docker exec -it <container_id> /bin/bash
 chmod +x repo_reset.sh
 ./repo_reset.sh <build_system> <folder1> <folder2>
 ```
+for the tutorial, we are using `travis` build system, folder1 will be `tananaev`, folder2 will be `traccar`
 
 5. Enter into the path `/home/travis/build/failed/tananaev/traccar`
 
