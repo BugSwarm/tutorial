@@ -35,7 +35,7 @@ BUGSWARM_TOKEN=""
 # Running python script for generating the patch
 For generating patch
 ```bash
-python run.py --model_name <llm_model_name> --data_path <bugswarm_image_name> --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
+python3 run.py --model_name <llm_model_name> --data_path <bugswarm_image_name> --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
 ```
 For llm_model_name we will use `gpt4`
 For bugswarm image we are using `tananaev-traccar-64783123`
