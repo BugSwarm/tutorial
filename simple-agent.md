@@ -93,14 +93,13 @@ The generated patch is stored in `model.patch` which is inside in the bugswarm c
 
 ```
 diff --git a/src/org/traccar/protocol/CastelProtocolDecoder.java b/src/org/traccar/protocol/CastelProtocolDecoder.java
-index 75021d3c..ca3d03b3 100644
+index 75021d3c..739d4ee6 100644
 --- a/src/org/traccar/protocol/CastelProtocolDecoder.java
 +++ b/src/org/traccar/protocol/CastelProtocolDecoder.java
-@@ -91,8 +91,9 @@ public class CastelProtocolDecoder extends BaseProtocolDecoder {
-                     response.writeShort(0);
+@@ -92,7 +92,9 @@ public class CastelProtocolDecoder extends BaseProtocolDecoder {
                      response.writeInt((int) (new Date().getTime() / 1000));
                      response.writeShort(Crc.crc16Ccitt(response.toByteBuffer(0, response.writerIndex())));
--                    response.writeByte(0x0D); response.writeByte(0x0A);
+                     response.writeByte(0x0D); response.writeByte(0x0A);
 -                    channel.write(response, remoteAddress);
 +                    if (channel != null) {
 +                        channel.write(response, remoteAddress);
