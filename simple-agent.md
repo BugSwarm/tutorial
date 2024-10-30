@@ -41,7 +41,7 @@ cd CIFailureFix-Agent/swe-agent
 
 2. For generating patch
 ```bash
-python3 run.py --model_name <llm_model_name> --data_path <bugswarm_image_name> --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
+python3 run.py --model_name <llm_model_name> --bugswarm_image <bugswarm_image_name> --config_file config/default_from_url.yaml  --per_instance_cost_limit 2.0
 ```
 For bugswarm image we are using `tananaev-traccar-64783123`
 
@@ -166,7 +166,7 @@ cd /home/travis/build/failed/tananaev/traccar
 7. Apply the patch on the folder
 
 ```bash
-cp ~/model.patch /home/travis/build/failed/tananaev/traccar/
+cp /home/travis/model.patch /home/travis/build/failed/tananaev/traccar/
 git apply model.patch
 ```
 
